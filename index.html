@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zzk的百宝箱</title>
+    <style>
+        /* 设置网页整体样式 */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        /* 设置标题样式 */
+        .title {
+            color: green;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        /* 设置图片样式 */
+        .image-container {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .image-container img {
+            width: 200px;
+            height: auto;
+        }
+        /* 设置按钮样式 */
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="color:green">欢迎来到zzk的百宝箱</h1>
-    <h3>查看代码</h3>
-    <img src="D:\24vscode\image\头像.jpg" alt="头像">
+    <!-- 显示标题 -->
+    <div class="title">欢迎来到zzk的百宝箱</div>
+    <!-- 图片和图片下方文字容器 -->
+    <div class="image-container">
+        <img src="miracle.jpg" alt="Miracle图片">
+        <div>Miracle</div>
+    </div>
+    <!-- 按钮，点击跳转到note.docx文件，需将note.docx上传到仓库后获取其正确路径 -->
+    <a href="note.docx" class="button">代码note</a>
 </body>
-
 </html>
