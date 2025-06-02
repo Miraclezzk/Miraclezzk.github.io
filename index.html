@@ -5,50 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zzk的百宝箱</title>
     <style>
-        /* 设置网页整体样式 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Courier New", monospace; /* 等宽字体显示代码 */
             text-align: center;
+            margin: 20px;
         }
-        /* 设置标题样式 */
         .title {
             color: green;
             font-size: 36px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
-        /* 设置图片样式 */
         .image-container {
-            display: inline-block;
             text-align: left;
-            margin-bottom: 10px;
+            display: inline-block;
+            margin: 20px 0;
         }
-        .image-container img {
-            width: 200px;
+        img {
+            width: 200px; /* 调整图片宽度 */
             height: auto;
         }
-        /* 设置按钮样式 */
         .button {
-            display: inline-block;
             background-color: #4CAF50;
             color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
+            padding: 15px 30px;
             font-size: 20px;
-            margin-top: 20px;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        #content {
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap; /* 保留换行和空格 */
+            display: none; /* 默认隐藏内容 */
         }
     </style>
 </head>
 <body>
-    <!-- 显示标题 -->
+    <!-- 顶部标题 -->
     <div class="title">欢迎来到zzk的百宝箱</div>
-    <!-- 图片和图片下方文字容器 -->
+    
+    <!-- 图片和文字 -->
     <div class="image-container">
-        <img src="miracle.jpg" alt="Miracle图片">
+        <img src="miracle.jpg" alt="Miracle图片"> <!-- 替换为你的图片文件名 -->
         <div>Miracle</div>
     </div>
-    <!-- 按钮，点击跳转到note.docx文件，需将note.docx上传到仓库后获取其正确路径 -->
-    <a href="note.docx" class="button">代码note</a>
+    
+    <!-- 点击显示内容的按钮 -->
+    <button class="button" onclick="toggleContent()">代码note</button>
+    
+    <!-- 动态生成内容区域（直接包含note.docx所有内容） -->
+    <div id="content">
+        <h3>Python代码笔记</h3>
+        <ol>
+            <!-- 以下为note.docx中所有条目，逐条转换为列表项 -->
+            <li>1. map(int,**)   为**应用int</li>
+            <li>2. map(int,input().split())</li>
+            <li>3. ord()   把字母转化为ASCII（数字）<br>chr()   把ASCII转化为字母</li>
+            <li>4. 使用strip()去除可能存在的空白字符，只要输入一个字符串的后面都加</li>
+            <li>5. /除 //整除 %取余</li>
+            <li>6. =str()转为字符串形式</li>
+            <li>7. B[0][::-1]表示选择第一个元素，倒写该元素</li>
+            <li>8. 要在同一行输入，可以后续用split()分离，然后记得为其转化成各自的形式（eg.float、int）</li>
+            <li>9. “%.4f”</li>
+            <li>10. ls.append(n)                                 ls.index</li>
+            <li>11. =sorted(ls,reverse=True)从大到小</li>
+            <li>12.  Python 3 中的 / 运算符执行的是浮点除法<br>//是整数除法</li>
+            <li>13. 求最大公约数<br>法1（原理：两个正整数的最大公约数等于其中较小的数和这两个数相除余数的最大公约数）<br>def gcd(a,b):<br>    if b==0:<br>        return a<br>    else:<br>        return gcd(b,a%b)<br><br>法2<br>import math<br><br>def gcd(a, b):<br><br>return math.gcd(a, b)<br><br>法3（暴力）<br><br>def gcd(a, b):<br><br>    smaller = min(a, b)<br><br>    for i in range(smaller, 0, -1):<br><br>        if a % i == 0 and b % i == 0:<br><br>            return i</li>
+            <li>14. f”{.........}”    f"..."：这表明接下来的字符串是一个f-string,其中可以包含花括号{}内的表达式，这些表达式将被计算并格式化为字符串。<br><br>{a:02d}：在花括号内，有一个表达式a和一个格式说明符:02d。<br><br>前面是对象，后面是处理方式<br><br>a：这是要被格式化为字符串的变量。<br><br>:02d：这是一个格式说明符，它指定了如何格式化a的值。(使每个数都是两位数，不够补0）</li>
+            <li>15. 双for</li>
+            <li>16. ls.extend(...)将这个字符列表中的所有元素添加到列表ls的末尾</li>
+            <li>17. extend和append区别在于，两者添加[4,5]时，append是直接在末尾加[4,5]，而extend是在末尾添加4,5（加单个整数用append不能用extend）</li>
+            <li>18. ls.count(x)计算列表ls中字符x出现的次数</li>
+            <li>19. 检查0-a中的质数从（2，int(a**0.5)+1）即可</li>
+            <li>20. 使用Python如果超时，可先算出其范围内最大值，然后其后面部分砍掉</li>
+            <li>21. 让一个命令执行n次：for i in range(n):</li>
+            <li>22. 空行：print（）</li>
+            <li>23. .join(...) 把.前面的作为分隔符和括号内的相连接，括号内是可迭代对象（如列表、元组等）<br>eg.' '.join(['a', 'b', 'c']) 会返回 'a b c'，其中 ' ' (空格)是分隔符</li>
+            <li>24. .pop()可以去除列表的一个元素（括号内的），只能去掉一个</li>
+            <li>25. enumerate(ls)：enumerate是内置函数，它接受一个可迭代对象（在这个例子中是列表ls）并返回一个迭代器，迭代器产生元组，每个元组包含两个元素：索引（位置）和值。例如，ls = [10, 20, 30]，则enumerate(ls)将产生(0, 10), (1, 20), (2, 30)。<br>Eg. for index, fruit in enumerate(fruits,10): </li>
+            <li>26. 标记法</li>
+            <li>27. 假如一个集合里面有很多（...），len会计算（...）的个数<br>如果（...）是三个数可以抽象到三维立体，计算有多少个方块</li>
+            <li>28. 建立一个n*n的列表：<br>arr=[[0 for j in range(n)] for i in range(n)]（全是0的n*n列表）</li>
+            <li>29. print(arr[i][j],end=" ")</li>
+            <li>30. 参数 end=" " 指定了在打印完当前元素后不要换行，而是用空格分隔元素。默认情况下，print 函数会在打印完内容后换行，但通过设置 end 参数，我们可以改变这一行为。</li>
+            <li>31. print()当它位于内层循环的外部，每完成一行的遍历后，都会执行一次这个 print() 函数，从而在输出中开始新的一行。（新开一行）</li>
+            <li>32. 也可以用双for循环建立一个二维画布（要算好画布长宽），然后再挨个点替换</li>
+            <li>33. 把一个多位数字符化，它会变成一个个单位字符<br>eg.str(118)=’1’,’1’,’8’</li>
+            <li>34. 两两对应关系可以用字典dic={},<br>dic[...]=A表示键...所对应的是A（可以是数字、字符串等等）</li>
+            <li>35. .intersection(s)   .前面的与括号内（列表或元组等）的交集</li>
+            <li>36. 计算列表连续m位数的和：sum(ls[i:i+m])</li>
+            <li>37. ls1.sort(reverse=True, key=lambda x: (x[0], x[1]))这个代码的意思是对列表ls1进行排序（降序），然后先根据（A,B）中的A进行排序，如果A相同，比较B，假如我们第一个A希望按照降序，但是B的时候我们希望用升序，我们只用在B前面加一个负号就可以实现</li>
+            <li>38. “{...}”.format(A)的意思是把A（A是字符串）处理（用{}内...的方法）</li>
+            <li>39. If ls[i]==y:   else:y==ls[i]    可以让y的值随着绿色ls[i]转换</li>
+            <li>40. 假如一个列表有多个列表，想让每个列表都翻转（整体看就是水平翻转）：    for i in ls1: ls2.append(i[::-1])</li>
+            <li>41. .upper()小转大写  .lower()大转小写  .capitalize()大小写互转</li>
+            <li>42. a的ASCII是97，A是65</li>
+            <li>43. 假如一个字典d={}一开始是空的，可以通过d[s]=v，如果这个s在上面的代码已经存在，就是把上面的s作为键存入，然后v是s所对应的的值</li>
+            <li>44. replace既可以用来替换也可以用来剔除，使用方法：<br>.replace(“...”,”...”)</li>
+            <li>45. 寻找第一个出现位置：.find(...) ...为寻找的对象，<br>找不到会输出-1</li>
+            <li>46. 遍历字典时，要在其名后加.items()<br>eg.for score, chars in scores.items():</li>
+            <li>47. 替换一个字符串里面其中一个字符的方法，可以用切片<br>eg. s1=s[:i]+'K'+s[i+1:]      （把s中i位置替换成了K）</li>
+            <li>48. 用if判断时，如果要用or不能i==1 or 2 or 3，应该是<br>i==1 or i==2 or i==3</li>
+            <li>49. lstrip去除开头即左侧，rstrip去除结尾即右侧</li>
+            <li>50. 填充：.rjust(2,’0’)意为占两个空格位，如果字符串不够两位，则往前面即左边补0，如果不想补，则不用写,’0’直接.rjust(2)则前面会补空格\\ljust同理，不过是向后补，即右边（虽然看起来这两个语法与其名字相反，实际上其名字的含义是rjust向右看齐，即以右为定格，反之ljust向左看齐，但实际用起来可以理解成相反）</li>
+            <li>51. 创建字典dic=dict(zip(key,val))，key作为键，val作为值，按顺序一一对应<br>Eg. #创建两个列表<br> keys = [1, 2, 3] values = ['a', 'b', 'c'] <br><br># 使用 zip() 函数将两个列表打包，并创建字典 <br>dic = dict(zip(keys, values)) <br><br># 打印字典中键为 1 的值 <br>print(dic[1])</li>
+            <li>52. exec() 函数会执行传入的字符串作为 Python 代码，例如你输入字符串a=3，然后你print(a)的结果就是3</li>
+            <li>53. 把列表的元素一个个以空格为间隔输出在同一行：<br>print(' '.join(map(str,ls)))</li>
+            <li>54. 在if判断时，要判断很多时，可以用all(……)只有括号里面全符合才是真，类似，any(……)只要括号里面有一个符合就是真<br>eg.if all(i%j!=0 for j in range(2,int(i**0.5)+1)):    （判断是否是质数）</li>
+            <li>55. 假如你要混合输出int和str类型可以print(f'{i}={b}+{j}')其中i,b,j都是int类型，=和+是str类型</li>
+            <li>56. 判断质数！！！不超时！！！函数：<br>def zs(n):<br>    if n <= 1:<br>        return False<br>    if n <= 3:<br>        return True  <br>    if n % 2 == 0 or n % 3 == 0:<br>        return False  <br>    i = 5<br>    while i * i <= n:<br>        if n % i == 0 or n % (i + 2) == 0:<br>            return False<br>        i += 6<br>return True</li>
+            <li>57. deque 是 Python 标准库 collections 中的一个双端队列，它支持在队列的两端高效地添加和删除元素。在这个代码中，我们使用 deque 来实现广度优先搜索（BFS）算法。<br>使用前要导入from collections import deque<br>定义方法eg.a=deque()<br>其中a.popleft()可以从头部取出一个元素，例如x = a.popleft() ，那么就是把队列a中的第一个元素赋给x，并且队列a移除第一个元素<br>a.append(...)可以在末尾添加元素</li>
+            <li>58. 字符串匹配可以用正则表达式，即import re。假如你要查找字符串里面片段的位置，可以re.finditer('\\bAlice\\b', s)或者re.finditer(r'\bAlice\b', s)，这个s表示原字符串，Alice表示要查找的片段，但是要注意这里finditer返回的只是一个迭代器，要换成索引（即位置）要用.start()例子如下：<br>matches = re.finditer(r'\bAlice\b', s)<br>for match in matches:<br>start_index = match.start()<br>或a = [m.start() for m in re.finditer(r'\bAlice\b', s)]</li>
+            <li>59. 二分查找可用bisect，要先import bisect。<br>l = bisect.bisect_left(a, x1) 这行代码的作用是在有序列表 a 中查找 x1 应该插入的最左位置（即大于等于x1），假如相同，也插在相同的最前面，并将该位置的索引赋值给变量 l。<br>类似的bisect.bisect_right则是插在最右位置，即相同的最后一位<br>举个例子：<br>列表[2, 3, 4, 5, 6, 7, 8]<br>x1=3  x2=7<br>都用bisect.bisect_left，那么x1插在索引为1的位置，7插在索引为5的位置，那么x1到x2有3,4,5,6四个元素，即[3,7)<br>都用bisect.bisect_right，那么x1插在索引为2的位置，7插在索引为6的位置，那么x1到x2有4,5,6,7四个元素，即(3,7]<br>如果我们前面用bisect.bisect_left，后面用bisect.bisect_right，那么x1插在索引为1的位置，7插在索引为6的位置，那么x1到x2有3,4,5,6,7五个元素，即[3,7]</li>
+            <li>60. datetime中time不能直接使用timedelta，只能用datetime或date</li>
+            <li>61. 递归思想，首先要有一个终止条件，其次把大问题化成小问题，从而不断递归</li>
+            <li>62. 前缀和可用accumulate<br>首先 from itertools import accumulate(导入）<br>r=accumulate(a)#a为要进行前缀和的列表<br>但是，要想前缀和表现出来，还要将r转化为列表<br>R=list(r)#此时R就是a的前缀和列表<br>此外，accumulate还有其他作用<br>一、使用 initial 参数<br>from itertools import accumulate<br><br># 定义一个列表<br>numbers = [1, 2, 3, 4, 5]<br><br># 指定初始值为 10 进行加法累积<br>result = accumulate(numbers, initial=10)<br>result_list = list(result)<br>print(result_list)# 输出: [10, 11, 13, 16, 20, 25]<br>就是它会定义初始值，从10开始累加，好比在最前面插入一个初始值然后累加<br>二、指定乘法累积操作<br>from itertools import accumulate<br>import operator#这里要额外导入一个operator<br><br># 定义一个列表<br>numbers = [1, 2, 3, 4, 5]<br><br>result = accumulate(numbers, func=operator.mul)#通过func=operator.mul指定为乘法<br>result_list = list(result)<br>print(result_list)  # 输出: [1, 2, 6, 24, 120]<br>就是先1，然后1*2、1*2*3、1*2*3*4、1*2*3*4*5</li>
+            <li>63. 对于幂次方求出来的数取模的时候，要看取得模是否为质数，如果为质数则对模减1。例如mod=10**9+7此时不能pow(2,n,mod)而是要pow(2,n,mod-1)</li>
+            <li>64. 假如不知道输入多少组数据，可以用while True:try:except break<br>这样只有出现输入不符合规范，才会停止</li>
+            <li>65. 二维前缀和公式(前提是下标从1,1开始）<br>${{{sum}{{{}{}{}{}{}{}}}}_{{i,j}{{{}{}{}{}{}{}}}}{=}\sum_{{i=1}{{{}{}{}{}{}{}{}}}}^{{x}{{{}{}{}{}{}{}{}}}}{\sum_{{j=1}{{{}{}{}{}{}{}{}}}}^{{y}{{{}{}{}{}{}{}{}}}}{{{a}{{{}{}{}{}{}{}}}}_{{i,j}{{{}{}{}{}{}{}{}}}}{{{}{}{}{}{}{}{}}}}{{{}{}{}{}{}{}{}}}}}$<br>下标从1,1开始，有如下统一公式:<br>sumi,j= sumi-1,j+sumi,j-1-sumi-1,j-1+ ai,j<br>二维差分数组公式<br>上述的sum替换成a，a替换成diff,就可以得到二维差分数组<br>diffi,j=ai,j-ai-1,j-ai,j-1+ ai-1,j-1</li>
+            <li>66. 堆队列有自动排序功能，可节省时间<br>要先import heapq<br>然后heapq.heapify(a)         a是列表，这里将a列表转化为堆结构<br>heapq.heappop(a)       从堆a中弹出最小的元素（可以赋值给别人）<br>heapq.heappush(a, t)            将t加入堆a</li>
+            <li>67. 假如你想在while循环结束后，如果在循环中没有break出来，然后你想进行下一项操作，你要用else，否则你直接加的话无论有没有break出来都会执行</li>
+            <li>68. 双指针可以同向扫描，也可以反向扫描</li>
+            <li>69. 二分常适用的问题：1.（有单调性的）2.最大值最小化或最小值最大化3.第K小获第K大问题<br>模版如下：def check(x):<br>    #判断x是否合法, 合法返回True, 否则返回False<br>    pass(判断合法条件)<br>left, right, ans = 初始化<br>while left <= right:<br>    mid = (left + right) // 2<br>    if check(mid):<br>        ans = mid<br>        left = mid + 1  #二选一<br>    else:<br>        right = mid - 1  #二选一<br>print(ans)</li>
+            <li>70. 二进制位运算：1.&与运算（有0得0）</li>
+            <li>71. 2.|或运算（有1得1）</li>
+            <li>72. 3.^异或运算（同0异1）4.~取反5.<<左移（每移一位想等于乘以2）6.>>右移（每移一位想等于除以2）<br>这些符号可以直接使用在十进制上面，编译会自动理解为二进制的</li>
+            <li>73. 位运算技巧：1.判断奇偶看二进制最后一位，相当于直接判断x&1<br>2.求x二进制第i位，用(x>>i)&1<br>3.将二进制的第i位设置为1，用x|(1<<i)<br>4.将二进制的第i位设置为0，用x&(~(1<<i))</li>
+            <li>74. 多输出可以先存到一个列表，再输出，比如：新建out=[]，然后out.append()，最后print(*out,sep=’\n’)后面是表示换行</li>
+            <li>75. 加速输入的代码：input=sys.stdin.readline</li>
+            <li>76. import sys<br>sys.setrecursionlimit(100000)#扩栈：递归层数过大, 需要设置最大栈空间</li>
+            <li>77. 寻找字典中的键：if i in dic.keys():</li>
+            <li>78. 假如排序内存大、速度慢，用这个方式<br>import numpy as np<br>n,m = map(int,input().split())<br>l = np.fromstring(input(), dtype = np.uint32, sep=' ')<br>l.sort()<br>print(l[m])</li>
+            <li>79. a=tuple(a)将a转化为元组<br>    b=set(b)<br>c=list(c)</li>
+            <li>80. 假如输入的数据不确定行数，有可能一行或者多行，可以：<br>a=[]<br>while len(a) < n:<br>    line = input().split()#分行读取<br>a.extend(map(int, line))#记住是extend不是append</li>
+            <li>81. a.sort(reverse=True,key=lambda x:(tuple(int(digit) for digit in x)))<br>该代码可以让一个列表逐个按里面的元素比较<br>或者直接a=sorted(lists,reverse=True)</li>
+            <li>82. from functools import cmp_to_key#从functools导入cmp_to_key<br>def compare(x, y):#比较x+y与y+x谁大<br>        return int(y + x) - int(x + y)<br>n = int(input())<br>a = list(map(str, input().split()))<br>a.sort(key=cmp_to_key(compare))#规则为cmp_to_key(compare)<br>s = ''.join(a)<br>print(s)<br><br>#cmp_to_key（A-B）假如A-B小于0，那么意味着（y+x）小于（x+y），即x应该排在y前面。该程序就是通过对所有元素排一遍然后确定顺序<br>#cmp_to_key(compare)：将 compare 这个传统比较函数转换为 sort() 方法可以使用的 key 函数</li>
+            <li>83. s.rindex.(a)：在s,从右边开始找a，输出的是a的位置</li>
+            <li>84. S.index(a,A)：在s，从左往右找a，开始找的位置是A</li>
+            <li>85. 完全 m 叉树（m 表示每个节点最多有 m 个子节点）有以下常见公式：<br>A.节点编号相关：<br>若节点编号为 i（根节点编号从 1 开始）， 它的第 j 个子节点编号为 (i - 1) * m + j + 1（1 ≤ j ≤ m）。<br>父节点编号：对于节点 i（i > 1），其父节点编号为 ⌊(i - 2) / m⌋ + 1 ，其中⌊ ⌋ 表示向下取整。<br>B.深度相关：<br>树的深度 h（层数）计算公式：h = ⌈logₘ(n * (m - 1) + 1)⌉ ，其中n是节点总数，⌈ ⌉ 表示向上取整。<br>C.每层节点数相关：<br>第 d 层（根节点为第 1 层，d ≥ 1）的节点数为 m^(d - 1) 。<br>D.叶子节点数相关：<br>叶子节点数 L 的计算公式：L = n - ⌊(n - 1) / m⌋ ，n为节点总数 。<br><br>![img](2<br>5<br>6<br>8<br>9<br>7<br>10 11)<br>假如一个节点编号为k，那么它的子节点左端等于k*m-m+2，右端为k*m+1</li>
+            <li>86. 差分数组可以有效节约循环时间<br>当原数组在[l,r]之间要加上x，那么差分数组直接在diff[l]+=x,diff[r+1]-=x<br>PS:diff数组要比原来的多1个单位，不然r+1有可能超了</li>
+            <li>87. deque<br><br>![img](□ deque大部分功能与list类似,但是删除和插入操作比list更高效<br>方法<br>功能<br>添加x到右端。<br>append(x)<br>添加x到左端。<br>appendleft(x)<br>popO<br>移去并且返回一个元素,deque 最右侧的那一个。<br>移去并且返回一个元素, deque 最左侧的那一个。<br>popleft()<br>在位置i插入x。<br>insert(i, x)<br>extend(iterable)<br>扩展deque的右侧, 通过添加iterable参数中的元素。<br>扩展deque的左侧,通过添加iterable参数中的元素。<br>extendleft(iterable)<br>注意,左添加时,在结果中iterable参数中的顺序将被反过来添加。<br>remove(value)<br>移除找到的第一个 value。)</li>
+            <li>88. 进制转换：<br>int_to_char = "0123456789ABCDEF"<br><br>#十进制数字x转换成k进制<br>def Ten_to_K(k, x):<br><br>    ans = ""<br>    while x != 0:<br>        ans += int_to_char[x % k]<br>        x //= k<br>return ans[::-1]</li>
+            <li>89. 其他进制转十进制，直接int(‘661311’,k)  k表示k进制</li>
+            <li>90.  file = open('example.txt', 'r')<br>    <br>    # 读取文件的全部内容,文件名叫example.txt，r表示只读<br>    content = file.read()<br>    print(content)</li>
+        </ol>
+    </div>
+
+    <script>
+        // 点击按钮切换内容显示状态
+        function toggleContent() {
+            const content = document.getElementById('content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
